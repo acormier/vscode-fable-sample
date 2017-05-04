@@ -1,0 +1,6 @@
+out
+node_modules
+.fake
+.paket/paket.exe
+packages
+paket-files

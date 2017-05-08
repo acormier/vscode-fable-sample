@@ -22,15 +22,22 @@ Target "NpmInstall" (fun _ ->
         })
  )
 
-Target "NpmBuild" (fun _ ->
-  Npm (fun p ->
-    {p with
-      Command = (Run "build")
-      WorkingDirectory = "./"
-      })
+Target "DotNetRestore" (fun _ ->
+  DotNetCli.Restore (fun p -> 
+         { p with 
+              NoCache = true })
+)
+
+Target "DotNetBuild" (fun _ ->
+  DotNetCli.RunCommand
+    (fun p -> 
+         { p with 
+              TimeOut = TimeSpan.FromMinutes 10. })
+    "fable npm-run build -v d"
 )
 
 "NpmInstall"
-==> "NpmBuild"
+==> "DotNetRestore"
+==> "DotNetBuild"
 
-RunTargetOrDefault "NpmBuild"
+RunTargetOrDefault "DotNetBuild"

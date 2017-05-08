@@ -4,3 +4,5 @@ node_modules
 .paket/paket.exe
 packages
 paket-files
+obj
+

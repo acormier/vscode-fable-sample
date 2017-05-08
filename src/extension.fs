@@ -1,5 +1,4 @@
-#r "../node_modules/fable-core/Fable.Core.dll"
-#load "../node_modules/fable-import-vscode/Fable.Import.VSCode.fs"
+module Extension
 
 open Fable
 open Fable.Import

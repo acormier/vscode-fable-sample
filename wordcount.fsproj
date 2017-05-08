@@ -12,4 +12,7 @@
     <PackageReference Include="Fable.Core" Version="1.0.0-narumi-*" />
     <DotNetCliToolReference Include="dotnet-fable" Version="1.0.0-narumi-*" />
   </ItemGroup>
+  <ItemGroup>
+      <ProjectReference Include="./node_modules/fable-import-vscode/Fable.Import.VSCode.fsproj" />
+  </ItemGroup>
 </Project>

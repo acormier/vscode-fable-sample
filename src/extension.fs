@@ -11,7 +11,7 @@ let activate(context: ExtensionContext) =
   let wordCount (d: TextDocument) =
     System.Text.RegularExpressions.Regex(@"\w+").Matches(d.getText()).Count
 
-  let showIfMdElseHide(ev) =
+  let showIfMdElseHide() =
     match window.activeTextEditor with
     | Some e ->
         let d = e.document

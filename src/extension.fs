@@ -12,14 +12,16 @@ let activate(context: ExtensionContext) =
     System.Text.RegularExpressions.Regex(@"\w+").Matches(d.getText()).Count
 
   let showIfMdElseHide() =
-    let e = window.activeTextEditor
-    let d = e.document
-    if d.languageId = "markdown"
-      then 
-        sb.text <- wordCount d |> sprintf "word count: %d"
-        sb.show()
-      else 
-        sb.hide()
+    match window.activeTextEditor with
+    | Some e ->
+        let d = e.document
+        if d.languageId = "markdown"
+          then 
+            sb.text <- wordCount d |> sprintf "word count: %d"
+            sb.show()
+          else
+            sb.hide()
+    | _ -> printf "Active text editor is undefined"
 
   showIfMdElseHide()
 
